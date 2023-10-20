@@ -53,6 +53,7 @@ const style = {
 }
 
 function Home() {
+
   return (
     <div style={style.div}>
       
@@ -69,9 +70,9 @@ function Home() {
                     <InputGroup.Text> <FontAwesomeIcon icon={faUser} style={style.icon} /> </InputGroup.Text>
                     <Form.Select aria-label="Default select example">
                     <option>Please select</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1">Martin Wickramasighe</option>
+                    <option value="2">Sudath Rohana</option>
+                    <option value="3">Dharshana Shammi</option>
                     </Form.Select>
                     <InputGroup.Text> <FontAwesomeIcon icon={faCirclePlus} style={style.icon} /> </InputGroup.Text>
                     </InputGroup>
@@ -177,6 +178,7 @@ function Home() {
                     <h4><Badge bg="primary" style={style.badge}>New Button</Badge></h4>
                     <h4><Badge bg="primary" style={style.badge}>Discount</Badge></h4>
                     <h4><Badge bg="primary" style={style.badge}>Tax</Badge></h4>
+                    <h6>Item Count: </h6>
                 </Stack>
                 <Stack  className="mb-3" direction="horizontal" gap={3}>
                     <h4><Badge bg="primary" style={style.badge}>New Button</Badge></h4>

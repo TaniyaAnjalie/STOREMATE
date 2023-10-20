@@ -2,21 +2,17 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000; // Define port
+const cors = require('cors'); // Import the cors middleware
 
-// const books = require('./Models/BookModel')
+const connectDB = require('./Database');    // Require the database connection
+connectDB();    // Connect to the database
 
-// Require the database connection
-const connectDB = require('./Database'); 
-
-// Connect to the database
-connectDB();
+app.use(cors()); // Enable CORS for all routes
 
 // Import routes
-const apiRoutes = require('./Routers/api');
-app.use('/api', apiRoutes);
-const BookRoute = require('./Routers/BookRouter')
+const BookRouter = require('./Routers/BookRouter')
 //middleware  to use Routes
-app.use('/books', BookRoute)
+app.use('/api/books', BookRouter)
 
 // Start the server
 app.listen(port, () => {
@@ -24,15 +20,3 @@ app.listen(port, () => {
 });
 
 app.use(express.json())
-
-
-
-// app.post('/books', async(req, res) => {
-//     try{
-//         const newBooks = await books.create(req.body)
-//         res.status(200).json(newBooks);
-//     }catch(error){
-//         console.log(error.message);
-//         res.status(500).json({message:error.message})
-//     }
-// })

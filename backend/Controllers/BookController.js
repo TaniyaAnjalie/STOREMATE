@@ -2,14 +2,14 @@ const Book = require('../Models/BookModel')
 
 //create a book
 const postBook = async(req, res) => {
-  try{
-    const newBook = await Book.create(req.body)
-    res.status(200).json(newBook);
+    try{
+        const newBook = await Book.create(req.body)
+        res.status(200).json(newBook);
 
-  } catch (error){
-    res.status(500)
-    throw new Error (error.message)
-  }
+    } catch (error){
+        res.status(500)
+        throw new Error (error.message)
+    }
 }
 
 //get all books
@@ -76,7 +76,6 @@ module.exports = {
     getBooks,
     getBookByID,
     postBook,
-    // updateBook,
     updateBookbyID,
     deleteBook
 }

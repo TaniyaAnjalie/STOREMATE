@@ -21,10 +21,10 @@ const bookSchema = mongoose.Schema(
         },
     },
     {
-        timestamps:{}
+        timestamps:true
     }
 )
 
-const books = mongoose.model('books' , bookSchema);
+const Book = mongoose.model('Book' , bookSchema);
 
-module.exports= books;
+module.exports= Book;

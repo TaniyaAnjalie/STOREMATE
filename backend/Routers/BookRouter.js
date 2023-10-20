@@ -6,21 +6,15 @@ const {
     getBooks,
     getBookByID,
     postBook,
-    // updatedBook,
     updateBookbyID,
     deleteBook
 } = require('../Controllers/BookController');
 
 //Routes
-
-router.post ('/' , postBook)     //create a user
-
-router.get ('/' , getBooks)    //get all users (fetch data)
-router.get ('/:id' , getBookByID)     //get a user by id
-
-router.put ('/:id' , updateBookbyID)     //update a user by id
-// router.put ('/:id' , updatedBook)     //update a user
-
-router.delete ('/:id' , deleteBook)     //delete a user
+router.post ('/' , postBook)     //create a book
+router.get ('/' , getBooks)    //get all books (fetch data)
+router.get ('/:id' , getBookByID)     //get a book by id
+router.put ('/:id' , updateBookbyID)     //update a book by id
+router.delete ('/:id' , deleteBook)     //delete a book
 
 module.exports = router;

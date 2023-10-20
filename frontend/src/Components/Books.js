@@ -1,18 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Col } from 'react-bootstrap'
 
 import BookCard from './BookCard'
 
 function Books() {
+
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3001/api/books')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data); 
+        setBooks(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching books:', error);
+      });
+  }, []);  
+
   return (
-    <div>
-        {/* <Col lg='3' className='mb-4' key={Product._id}> */}
-        <Col lg='3' className='mb-4'>
-                    {/* <BookCard Product={Product}/> */}
-                    <BookCard/>
-                </Col>
-    </div>
+    <>
+      {books.map((book) => (
+        <Col lg='3' className='mb-4' key={book._id}>
+          <BookCard Book={book}/>
+        </Col>
+      ))}
+    </>
   )
 }
 
