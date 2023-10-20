@@ -1,9 +1,7 @@
-const Book = require('../Models/BookModels')
-const asyncHandler = require('express-async-handler')
-
+const Book = require('../Models/BookModel')
 
 //create a book
-const postBook = asyncHandler(async(req, res) => {
+const postBook = async(req, res) => {
   try{
     const newBook = await Book.create(req.body)
     res.status(200).json(newBook);
@@ -12,10 +10,10 @@ const postBook = asyncHandler(async(req, res) => {
     res.status(500)
     throw new Error (error.message)
   }
-})
+}
 
 //get all books
-const getBooks = asyncHandler(async(req, res) => {
+const getBooks = async(req, res) => {
   try{
     const books = await Book.find({});
     res.status(200).json(books);
@@ -24,10 +22,10 @@ const getBooks = asyncHandler(async(req, res) => {
     res.status(500)
     throw new Error (error.message)
   }
-})
+}
 
 //get single book by id
-const getBookByID = asyncHandler( async(req, res) => {
+const getBookByID = async(req, res) => {
   try{
     const {id} = req.params;
     const book = await Book.findById(id);
@@ -37,10 +35,10 @@ const getBookByID = asyncHandler( async(req, res) => {
     res.status(500)
     throw new Error (error.message)
   }
-})
+}
 
 //update a book by id
-const updateBookbyID = asyncHandler(async(req, res) => {
+const updateBookbyID = async(req, res) => {
   try{
     const {id} = req.params;
     const book = await Book.findByIdAndUpdate(id, req.body);
@@ -55,10 +53,10 @@ const updateBookbyID = asyncHandler(async(req, res) => {
     res.status(500)
     throw new Error (error.message)
   }
-})
+}
 
 //delete a book by id
-const deleteBook = asyncHandler(async(req, res) => {
+const deleteBook = async(req, res) => {
   try{
     const {id} = req.params;
     const book = await Book.findByIdAndDelete(id, req.body);
@@ -72,13 +70,13 @@ const deleteBook = asyncHandler(async(req, res) => {
     res.status(500)
     throw new Error (error.message)
   }
-})
+}
 
 module.exports = {
     getBooks,
     getBookByID,
     postBook,
-    updatedBook,
+    // updateBook,
     updateBookbyID,
     deleteBook
 }

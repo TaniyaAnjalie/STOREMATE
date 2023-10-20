@@ -1,8 +1,15 @@
 const express = require('express');
-// const book = require('../Models/BookModel')
 const router = express.Router();
+const book = require('../Models/BookModel')
 
-const {} = require('../Controllers/BookController');
+const {
+    getBooks,
+    getBookByID,
+    postBook,
+    // updatedBook,
+    updateBookbyID,
+    deleteBook
+} = require('../Controllers/BookController');
 
 //Routes
 
@@ -12,7 +19,7 @@ router.get ('/' , getBooks)    //get all users (fetch data)
 router.get ('/:id' , getBookByID)     //get a user by id
 
 router.put ('/:id' , updateBookbyID)     //update a user by id
-router.put ('/:id' , updatedBook)     //update a user
+// router.put ('/:id' , updatedBook)     //update a user
 
 router.delete ('/:id' , deleteBook)     //delete a user
 
