@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb+srv://storemate:storemate@storemate.uvnnrw6.mongodb.net/?retryWrites=true&w=majority'; // Replace with your MongoDB connection URI
+const mongoURI = 'mongodb+srv://storemate:storemate@storemate.uvnnrw6.mongodb.net/?retryWrites=true&w=majority';
 
 const connectDB = async () => {
   try {
