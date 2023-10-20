@@ -9,10 +9,9 @@ const connectDB = require('./Database');
 // Connect to the database
 connectDB();
 
-// Define routes
-app.get('/', (req, res) => {
-    res.send('Hello, World!');
-});
+// Import routes
+const apiRoutes = require('./Routers/api');
+app.use('/api', apiRoutes);
 
 // Start the server
 app.listen(port, () => {
