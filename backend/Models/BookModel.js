@@ -12,11 +12,11 @@ const bookSchema = mongoose.Schema(
             type: String,
         },
         price: {
-            type: integer,
+            type: Number,
             required: true,
         },
         stock: {
-            type: integer,
+            type: Number,
             required: true,
         },
     },
